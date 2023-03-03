@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+xmlns:ctx="http://www.springframework.org/schema/context"
+
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+xmlns:aop="http://www.springframework.org/schema/aop"
+
+xmlns:mvc="http://www.springframework.org/schema/mvc"
+
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+
+http://www.springframework.org/schema/mvc
+
+http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+
+http://www.springframework.org/schema/context
+
+http://www.springframework.org/schema/context/spring-context-2.5.xsd
+
+http://www.springframework.org/schema/aop
+
+http://www.springframework.org/schema/aop/spring-aop.xsd"
+>
+<ctx:annotation-config></ctx:annotation-config>
+<ctx:component-scan base-package="com.naga"></ctx:component-scan>
+
+<!-- Annotation based configuration of Spring AOP -->
+<aop:aspectj-autoproxy/>
+
+<!-- XML based configuration of Spring AOP -->
+<!-- Note: we have to remove all the annotaions in AspectClass when applying xml based configuration.-->
+
+<!-- 
+<bean name="AspectClass" class="com.naga.SpringAopDemo.aspects.AspectClass" />
+<aop:config>
+	<aop:aspect id="aspects" ref="AspectClass">
+		<aop:pointcut expression="execution(* com.naga.SpringAopDemo.model.Car.fun(..))" id="funMethod"/>
+		<aop:before pointcut-ref="funMethod" method="loggerAdvice"/>
+	</aop:aspect>
+</aop:config>
+-->
+
+
+</beans>
